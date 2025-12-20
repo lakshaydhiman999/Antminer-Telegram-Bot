@@ -15,24 +15,27 @@ Rename: Change the filename to curl.
 Upload: Use WinSCP to transfer the file to the /etc/ directory on your miner.
 
 Apply Permissions: SSH into your miner (ssh root@yourminerIP) and run:
+```bash
 chmod +x /etc/curl
-
+```
 4. API Connector (Netcat)
 Install the network utility to interface with the BOSminer API. Execute this in your terminal:
-
+```bash
 /etc/curl -k -L -o /etc/nc https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-armv8l
-chmod +x /etc/nc
 
+chmod +x /etc/nc
+```
 4. Deploy Management Script
 Create monitor.sh in the /etc/ directory.
 
 Paste the code from this repository into the file.
 Configuration: Insert your specific TOKEN and CHAT_ID in the script's header.
 Final Permission: Enable execution:
-
+```bash
 chmod +x /etc/monitor.sh
-
+```
 5. Persistent Execution
 To ensure the service resumes after a power cycle, edit /etc/rc.local (or /etc/rcS) and append this line at the bottom:
-
+```bash
 /etc/monitor.sh &
+```
