@@ -39,3 +39,21 @@ To ensure the service resumes after a power cycle, edit /etc/rc.local (or /etc/r
 ```bash
 /etc/monitor.sh &
 ```
+
+---
+
+## ❓ Frequently Asked Questions (FAQ)
+
+**Q: Is this script safe for my miner?**
+**A:** Yes. It uses the official BOSminer API (read-only for status) and only modifies the power target in the config file when you press a button.
+
+**Q: Does it slow down the hashrate?**
+**A:** No. It is a lightweight shell script that consumes less than 1% of the miner's CPU.
+
+**Q: What happens if my internet goes down?**
+**A:** The script will wait for connectivity. We have added a `sleep` command and loop checks to ensure it doesn't crash during network loss.
+
+**Q: Can I use this on Stock Firmware?**
+**A:** No. This is specifically designed for **Braiins OS** because it relies on the `.toml` config and BOSminer API.
+
+---
