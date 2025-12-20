@@ -13,6 +13,8 @@ CONFIG="/etc/bosminer.toml"
 OFFSET_FILE="/tmp/tg_offset"
 NC_BIN="/etc/nc"
 
+# Wait for system and network services to initialize
+sleep 30
 echo "0" > $OFFSET_FILE
 
 get_miner_data() {
@@ -36,7 +38,6 @@ get_miner_data() {
     MSG="Miner Status Update%0A--------------------%0ALogin: http://${LOGIN_IP}/%0ASpeed: ${SPEED} TH/s%0ATemp: ${TEMP} C%0APower: ${WATTS}W%0AUptime: ${UP_STR}%0A%0APool: ${P_URL}%0A--------------------%0ATime: ${TIME}"
 }
 
-# Added "Created by Lakshay" Button here
 KEYBOARD='{"keyboard": [[{"text": "Status"}], [{"text": "Set 1000W"}, {"text": "Set 2500W"}], [{"text": "Set 2900W"}, {"text": "Set 3200W"}], [{"text": "Reboot"}, {"text": "Created by Lakshay"}]], "resize_keyboard": true}'
 
 get_miner_data
@@ -47,11 +48,11 @@ while true; do
   UPDATES=$(/etc/curl -k -s "https://api.telegram.org/bot$TOKEN/getUpdates?offset=$OFFSET&timeout=5")
   
   get_miner_data
-  [ "$TEMP" -ge 80 ] && /etc/curl -k -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="?? ALERT: High Temp ${TEMP}C!"
+  [ "$TEMP" -ge 80 ] && /etc/curl -k -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="🔥 ALERT: High Temp ${TEMP}C!"
 
   case "$UPDATES" in
     *"Status"*) /etc/curl -k -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="$MSG" ;;
-    *"Created by Lakshay"*) /etc/curl -k -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="?? Script created by lakshaydhiman999%0AGitHub: https://github.com/lakshaydhiman999-dev" ;;
+    *"Created by Lakshay"*) /etc/curl -k -s -X POST "https://api.telegram.org/bot$TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="🚀 Script created by lakshaydhiman999%0AGitHub: https://github.com/lakshaydhiman999" ;;
     *"Set 1000W"*) TARGET=1000 ;;
     *"Set 2500W"*) TARGET=2500 ;;
     *"Set 2900W"*) TARGET=2900 ;;
