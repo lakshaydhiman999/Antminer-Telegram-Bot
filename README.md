@@ -8,11 +8,13 @@ Initialize your teligram messaging bot interface to receive data.
 Secure your unique API Tokens and access credentials.
 
 2. Dependency Setup (Curl)
-Download: Obtain the AARCH64 static binary for Curl.
-Rename: Change the filename to curl.
-Upload: Use WinSCP to transfer the file to the /etc/ directory on your miner.
-Apply Permissions: SSH into your miner (ssh root@yourminerIP) and run:
+Download: Obtain the AARCH64 static binary for Curl. https://github.com/moparisthebest/static-curl/releases/tag/v8.11.0
 
+Rename: Change the filename to curl.
+
+Upload: Use WinSCP to transfer the file to the /etc/ directory on your miner.
+
+Apply Permissions: SSH into your miner (ssh root@yourminerIP) and run:
 chmod +x /etc/curl
 
 4. API Connector (Netcat)
