@@ -1,6 +1,59 @@
 # Antminer-Telegram-Bot
 Remote control and monitor Antminers (Braiins OS) directly via Telegram Bot without any external server or PC."
 
+## ✨ Key Features
+
+### 📊 1. Real-Time Status Dashboard
+
+Get a complete snapshot of your miner's health with a single click. The status update includes:
+
+* **Live Hashrate:** Current mining speed (TH/s).
+* **Thermal Stats:** Average chip temperature and individual PCB temperatures.
+* **Chip Health:** Displays total active chips count (e.g., 88 Chips).
+* **Power Usage:** Current power consumption in Watts.
+* **Pool Info:** Active pool URL and connection status.
+* **Uptime:** detailed uptime counter (Days, Hours, Minutes).
+
+### 📅 2. Smart Power Scheduler (Day/Night Mode)
+
+Automate your power consumption based on electricity rates or temperature preferences:
+
+* **Day Mode (10 AM - 10 PM):** Automatically drops power to **2500W** to prevent overheating during the day.
+* **Night Mode (10 PM - 10 AM):** Automatically boosts power to **3200W** to maximize profits during cooler hours.
+* *Toggleable via Telegram Button.*
+
+### 🩹 3. Auto Self-Healing (Watchdog)
+
+Never lose mining time again. The script monitors your hashrate continuously:
+
+* **Zero Hashrate Detection:** If the miner stops hashing (0 TH/s) for **40 minutes**, the script automatically reboots the system to fix software glitches.
+* *Toggleable via Telegram Button.*
+
+### 🛡️ 4. Safety & Alerts
+
+* **🔥 High Temp Alert:** Instantly sends a warning notification if the average chip temperature exceeds **80°C**.
+* **Emoji Encoding Fix:** Solves the common `??` display bug on miner terminals by placing emojis at the end of text strings.
+
+### 🎮 5. Remote Control Center
+
+Control your hardware from anywhere without logging into the web interface:
+
+* **Power Profiles:** One-tap buttons to set power targets (1000W, 2500W, 3000W, 3200W).
+* **Remote Reboot:** Restart the miner remotely if it acts up.
+
+### 📡 6. Network Diagnostics
+
+* **Ping Check:** Checks internet connectivity and latency (ms) to Google servers directly from the miner.
+* **IP Display:** Shows the current Local IP address for easy web access.
+
+## 🛠️ Performance
+
+* **Lightweight:** Uses `sleep 5` intervals to ensure <1% CPU usage.
+* **Safe:** Writes to config only when necessary, preserving NAND flash life.
+* **Reliable:** Built-in loop protection and network timeout handling.
+
+---
+
 🛠️ Installation Guide
 1. API Preparation
 Initialize your teligram messaging bot interface to receive data.
