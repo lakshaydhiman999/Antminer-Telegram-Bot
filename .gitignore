@@ -1,0 +1,4 @@
+# Ignore sensitive files
+config.txt
+credentials.sh
+.env
