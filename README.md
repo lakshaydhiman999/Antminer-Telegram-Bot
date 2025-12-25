@@ -3,11 +3,12 @@ Remote control and monitor Antminers (Braiins OS) directly via Telegram Bot with
 
 ## ✨ Key Features
 
-### 📊 1. Real-Time Status Dashboard
+### 📊 1. Real-Time Status Dashboard (Updated v4.0)
 
-Get a complete snapshot of your miner's health with a single click. The status update includes:
+Get a complete snapshot of your miner's health and profitability:
 
 * **Live Hashrate:** Current mining speed (TH/s).
+* **💰 Market Data:** Live **Bitcoin Price ($)** and **Estimated Daily Earnings ($)**.
 * **Thermal Stats:** Average chip temperature and individual PCB temperatures.
 * **Chip Health:** Displays total active chips count (e.g., 88 Chips).
 * **Power Usage:** Current power consumption in Watts.
