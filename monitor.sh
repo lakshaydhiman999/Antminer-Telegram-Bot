@@ -1,6 +1,6 @@
 #!/bin/sh
 # ---------------------------------------------------------
-# Antminer Telegram Control Script v4.0
+# Antminer Telegram Control Script (v4.0)
 # Currency: USD | Compatibility: Braiins OS / BOSminer
 # Created by: lakshaydhiman999
 # ---------------------------------------------------------
@@ -21,7 +21,7 @@ SELF_HEAL_STATE="ON"
 SCHEDULER_STATE="OFF"
 
 # Boot wait
-sleep 90
+sleep 1
 echo "0" > $OFFSET_FILE
 
 get_miner_data() {
