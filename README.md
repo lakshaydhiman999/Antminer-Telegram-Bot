@@ -1,6 +1,7 @@
 # Antminer-Telegram-Bot
 Remote control and monitor Antminers (Braiins OS) directly via Telegram Bot without any external server or PC."
-![Status](screenshot.png)
+
+![Miner Status Dashboard](Screenshot.png)
 
 ## ✨ Key Features
 
@@ -127,3 +128,5 @@ To ensure the service resumes after a power cycle, edit /etc/rc.local (or /etc/r
 **Q: Is the connection to Telegram secure?** **A:** Yes, but we use the `-k` flag with Curl to bypass SSL certificate verification. This is necessary because some miner firmware environments have outdated root certificates.
 
 ---
+
+"This project is for educational purposes only. It is a remote monitoring tool for personal mining hardware and does not perform mining on GitHub servers."
