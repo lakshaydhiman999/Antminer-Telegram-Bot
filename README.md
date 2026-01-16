@@ -1,60 +1,58 @@
-# Antminer-Telegram-Bot
-Remote control and monitor Antminers (Braiins OS) directly via Telegram Bot without any external server or PC."
+# 🚀 Antminer Telegram Monitor & Automation Bot (v5.0)
+
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Braiins OS](https://img.shields.io/badge/Firmware-Braiins%20OS-red.svg)](https://braiins.com/os)
+
+The most advanced **Antminer Monitoring Script** for Braiins OS. Control your Bitcoin mining farm remotely via Telegram with real-time stats, dual-layer auto-healing, and smart power scheduling.
 
 ![Miner Status Dashboard](Screenshot.png)
 
 ## ✨ Key Features
 
-### 📊 1. Real-Time Status Dashboard (Updated v4.0)
+### 📊 1. Real-Time Status Dashboard
+Get a complete snapshot of your miner's health and profitability in a professional list format:
 
-Get a complete snapshot of your miner's health and profitability:
+* **Live Total Hashrate:** Real-time total mining speed in **TH/s**.
+* **💰 USD Market Data:** Live **Bitcoin Price ($)** and **Estimated Daily Earnings ($)** using CoinGecko API.
+* **⚡ Power & Efficiency:** Tracks **Actual Power Consumption (W)** vs **Target (W)** with live **W/Ths** efficiency metrics.
+* **🛡️ Full Board Health:** Detailed per-board stats including **Inlet Temp**, **Outlet (Chip) Temp**, and individual **Hashrate (TH/s)**.
+* **✅ Chip Integrity:** Monitor total active chip count (e.g., 88 Chips) across all hashboards.
+* **🕒 Uptime Tracking:** High-precision counter showing Days, Hours, and Minutes since the last boot.
 
-* **Live Hashrate:** Current mining speed (TH/s).
-* **💰 Market Data:** Live **Bitcoin Price ($)** and **Estimated Daily Earnings ($)**.
-* **Thermal Stats:** Average chip temperature and individual PCB temperatures.
-* **Chip Health:** Displays total active chips count (e.g., 88 Chips).
-* **Power Usage:** Current power consumption in Watts.
-* **Pool Info:** Active pool URL and connection status.
-* **Uptime:** detailed uptime counter (Days, Hours, Minutes).
+### 🩹 2. Dual-Layer Self-Healing (Smart Watchdog)
+Advanced automation to minimize downtime and maximize ROI:
 
-### 📅 2. Smart Power Scheduler (Day/Night Mode)
+* **Global Self-Heal:** Automatically detects system-wide hangs and reboots the miner if total hashrate hits **0 TH/s**.
+* **Hashboard Self-Heal (New):** If a single board drops to **0 TH/s**, the script alerts you and waits **10 minutes** for recovery before rebooting.
+* **🌐 Network Guard:** Built-in **Ping Check** prevents reboot loops by ensuring the miner only restarts when internet connectivity is active.
+* *Both healing modes can be toggled independently via Telegram.*
 
-Automate your power consumption based on electricity rates or temperature preferences:
+### 📅 3. Smart Power Scheduler (Day/Night Mode)
+Optimize electricity costs and hardware life with automatic power scaling:
 
-* **Day Mode (10 AM - 10 PM):** Automatically drops power to **2500W** to prevent overheating during the day.
-* **Night Mode (10 PM - 10 AM):** Automatically boosts power to **3200W** to maximize profits during cooler hours.
-* *Toggleable via Telegram Button.*
+* **Day Mode (10 AM - 10 PM):** Automatically scales down to **2500W** to prevent overheating during peak sun hours.
+* **Night Mode (10 PM - 10 AM):** Boosts power target to **3200W** for maximum hashpower during cooler nights.
+* *Fully toggleable via dedicated Telegram buttons.*
 
-### 🩹 3. Auto Self-Healing (Watchdog)
-
-Never lose mining time again. The script monitors your hashrate continuously:
-
-* **Zero Hashrate Detection:** If the miner stops hashing (0 TH/s) for **40 minutes**, the script automatically reboots the system to fix software glitches.
-* *Toggleable via Telegram Button.*
-
-### 🛡️ 4. Safety & Alerts
-
-* **🔥 High Temp Alert:** Instantly sends a warning notification if the average chip temperature exceeds **80°C**.
-* **Emoji Encoding Fix:** Solves the common `??` display bug on miner terminals by placing emojis at the end of text strings.
+### 🛡️ 4. Safety & Critical Alerts
+* **🔥 High Temp Alert:** Instant Telegram notifications if the average chip temperature crosses **80°C**.
+* **💎 Encoding Optimization:** Fixed the common `??` emoji display bug on miner terminals for clean, readable Telegram messages.
 
 ### 🎮 5. Remote Control Center
+Manage your Antminer farm without SSH or Web UI:
 
-Control your hardware from anywhere without logging into the web interface:
+* **Instant Power Profiles:** Quick buttons to switch between **1000W, 2500W, 3000W, and 3200W**.
+* **Remote Management:** Reboot the system or check network latency (ms) with a single tap.
+* **Independent Toggles:** Dedicated ON/OFF buttons for **Self-Heal**, **Board-Heal**, and **Scheduler**.
 
-* **Power Profiles:** One-tap buttons to set power targets (1000W, 2500W, 3000W, 3200W).
-* **Remote Reboot:** Restart the miner remotely if it acts up.
+---
 
-### 📡 6. Network Diagnostics
+## 🛠️ Performance & Reliability
 
-* **Ping Check:** Checks internet connectivity and latency (ms) to Google servers directly from the miner.
-* **IP Display:** Shows the current Local IP address for easy web access.
-
-## 🛠️ Performance
-
-* **Lightweight:** Uses `sleep 5` intervals to ensure <1% CPU usage.
-* **Safe:** Writes to config only when necessary, preserving NAND flash life.
-* **Reliable:** Built-in loop protection and network timeout handling.
-
+* **🚀 On-Demand Fetching:** Optimized to eliminate lag. Heavy background tasks run only during "Status Update" requests.
+* **Lightweight:** Pure shell script ensuring **<0.5% CPU overhead**.
+* **NAND Protection:** Minimal write cycles to preserve the miner's internal flash memory life.
+* **24/7 Stable:** Built-in error handling and network timeout protection for maximum uptime.
 ---
 
 🛠️ Installation Guide
